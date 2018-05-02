@@ -16,7 +16,9 @@ body {
 	padding: 0;
 	color: #000;
 }
-
+#form #stat {
+	color: #F00;
+}
 /* ~~ Element/tag selectors ~~ */
 ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
 	padding: 0;
@@ -136,22 +138,14 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
 ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
 </style>
-<![endif]-->
-
-  <script type="text/javascript">
-function gotopage(select){
-    window.location = select.value;
-}
-</script>
-
-</head>
+<![endif]--></head>
 
 <body>
 
 <div class="container">
   <div class="header">
     <p style="font-size:72px" ><strong>Corral</strong></p>
-    <p style="font-size:36px">SIT 374 - Capstone Project</p> 
+    <p style="font-size:36px">SIT 374 - Capstone Project</p>
     <!-- end .header --></div>
   <div class="sidebar1">
     <ul class="nav">
@@ -167,30 +161,55 @@ function gotopage(select){
     <p>&nbsp;</p>
   <!-- end .sidebar1 --></div>
   <div class="content">
-    <h1 style="font-size:48px">Register</h1>
-    <p>There are two types of account in this web-base application.</p>
-    <p>Please choose the user type for registration.</p>
-    <form id="jump" name="jump" method="post" action="">
-      <p>
-        <label for="register"><br />
-        </label>
-        <select name="register" id="register" onchange="gotopage(this)">
-          <option selected="true" disabled="disabled">Choose one of the list Below</option>
-          <option value="RegisterStaff.php">Staff Account</option>
-          <option value="RegisterStudent.php">Student Account</option>
-        </select>
+    <h1 style="font-size:48px">Staff Information</h1>
+    <form id="form" name="form" method="post" action="ConnectStaff.php">
+      <p><span style="font-size:32px"><strong>Staff Details</strong></span></p>
+      <p><strong>Staff First Name:
+          
+      </strong>
+        <input type="text" name="fname1" id="fname1" />
       </p>
+      <p><strong>Staff Last Name:
+        
+      </strong>
+        <input type="text" name="lname1" id="lname1" />
+      </p>
+      <p><strong>Staff ID Number:
+        
+      </strong>
+        <input type="text" name="sid1" id="sid1" />
+      </p>
+      <p><strong>Staff Email Address:
+        
+      </strong>
+        <input type="text" name="email1" id="email1" />
+      </p>
+      <p><strong>Staff Password:
+        
+      </strong>
+        <input type="password" name="pass1" id="pass1" />
+      </p>
+      <blockquote>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
+      <div id="stat"></div>
+      <p>&nbsp;</p>
+    </blockquote>
+    <blockquote>
+        <p><input type="submit" name="submit" id="submit" value="Register" />
+        <input type="reset" name="button3" id="button3" value="Reset" />
+      </p>
     </form>
     <p>&nbsp;</p>
-    <p>&nbsp;</p>
+    <h4>&nbsp;</h4>
     <!-- end .content --></div>
   <div class="footer">
-    <p>Deakin University, School of Information Technology. This web page has been developed as a student assignment for the unit SIT374: Project Design.</p>
+    <p>Deakin University, School of Information Technology. This web page has been developed as a student assignment for the unit SIT374: Project Design. </p>
     <!-- end .footer --></div>
   <!-- end .container --></div>
-
-
+  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="staff.js"></script>
+  
 </body>
 </html>

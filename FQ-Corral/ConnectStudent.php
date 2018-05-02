@@ -167,25 +167,170 @@ function gotopage(select){
     <p>&nbsp;</p>
   <!-- end .sidebar1 --></div>
   <div class="content">
-    <h1 style="font-size:48px">Register</h1>
-    <p>There are two types of account in this web-base application.</p>
-    <p>Please choose the user type for registration.</p>
-    <form id="jump" name="jump" method="post" action="">
-      <p>
-        <label for="register"><br />
-        </label>
-        <select name="register" id="register" onchange="gotopage(this)">
-          <option selected="true" disabled="disabled">Choose one of the list Below</option>
-          <option value="RegisterStaff.php">Staff Account</option>
-          <option value="RegisterStudent.php">Student Account</option>
-        </select>
-      </p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </form>
+    <h1 style="font-size:48px">Student Registration</h1>
     <p>&nbsp;</p>
+    
+    
+    <?PHP
+	
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$sid = $_POST['sid'];
+	$email = $_POST['email'];
+	$pass = $_POST['pass'];
+	$location = $_POST['location'];
+	$employ = $_POST['employ'];
+	$capstone = $_POST['capstone'];
+	$course = $_POST['course'];
+	$skill1 = $_POST['skill1'];
+	$skill2 = $_POST['skill2'];
+	$skill3 = $_POST['skill3'];
+	$skill4 = $_POST['skill4'];
+	$skill5 = $_POST['skill5'];
+	$skill6 = $_POST['skill6'];
+	$skill7 = $_POST['skill7'];
+	$skill8 = $_POST['skill8'];
+	$skill9 = $_POST['skill9'];
+	$skill10 = $_POST['skill10'];
+	$skill11 = $_POST['skill11'];
+	$skill12 = $_POST['skill12'];
+	$skill13 = $_POST['skill13'];
+	$skill14 = $_POST['skill14'];
+	$techsk1 = $_POST['techsk1'];
+	$techsk2 = $_POST['techsk2'];
+	$techsk3 = $_POST['techsk3'];
+	$techskpro1 = $_POST['techskpro1'];
+	$techskpro2 = $_POST['techskpro2'];
+	$techskpro3 = $_POST['techskpro3'];
+	$softsk1 = $_POST['softsk1'];
+	$softsk2 = $_POST['softsk2'];
+	$softsk3 = $_POST['softsk3'];
+	$softskpro1 = $_POST['softskpro1'];
+	$softskpro2 = $_POST['softskpro2'];
+	$softskpro3 = $_POST['softskpro3'];
+	$projti1 = $_POST['projti1'];
+	$projti2 = $_POST['projti2'];
+	$projti3 = $_POST['projti3'];
+	$aspira = $_POST['aspira'];
+	$Entrepre = $_POST['Entrepre'];
+	$permis = $_POST['permis'];
+	$additi = $_POST['additi'];
+
+
+
+	
+	
+	//connect to database
+	require_once "constant.php";
+	$con = new MySQLi(DB_HOST,DB_USER,DB_PASSWORD);
+	
+	if(mysqli_connect_error()){
+		die('Connect Error ('. mysqli_connect_errno() .')'. mysqli_connect_error());
+	}
+	
+	else {
+		$sql = "INSERT INTO student (FNAME,
+									 LNAME, 
+									 STUDID, 
+									 EMAIL, 
+									 PASS, 
+									 LOCATION, 
+									 EMPLOY, 
+									 CAPSTONE, 
+									 COURSE, 
+									 SKILL1, 
+									 SKILL2, 
+									 SKILL3, 
+									 SKILL4, 
+									 SKILL5, 
+									 SKILL6, 
+									 SKILL7, 
+									 SKILL8, 
+									 SKILL9, 
+									 SKILL10, 
+									 SKILL11, 
+									 SKILL12, 
+									 SKILL13, 
+									 SKILL14, 
+									 TECHSK1, 
+									 TECHSK2, 
+									 TECHSK3, , 
+									 TECHSKPRO1, 
+									 TECHSKPRO2, 
+									 TECHSKPRO3,  
+									 SOFTSK1, 
+									 SOFTSK2, 
+									 SOFTSK3, , 
+									 SOFTSKPRO1, 
+									 SOFTSKPRO2, 
+									 SOFTSKPRO3,  
+									 PROKTI1, 
+									 PROKTI2, 
+									 PROKTI3, 
+									 ASPIRA, 
+									 PROFILE, 
+									 ENTEREPRE, 
+									 PERMIS, 
+									 ADDITI)
+		
+		VALUES  ('$fname',
+				 '$lname',
+				 '$sid', 
+				 '$email',
+				 '$pass',
+				 '$location', 
+				 '$employ', 
+				 '$capstone', 
+				 '$course', 
+				 '$skill1', 
+				 '$skill2', 
+				 '$skill3', 
+				 '$skill4', 
+				 '$skill5', 
+				 '$skill6', 
+				 '$skill7', 
+				 '$skill8', 
+				 '$skill9', 
+				 '$skill10', 
+				 '$skill11', 
+				 '$skill12', 
+				 '$skill13', 
+				 '$skill14', 
+				 '$techsk1',
+				 '$techsk2',
+				 '$techsk3',
+				 '$techskpro1',
+				 '$techskpro2',
+				 '$techskpro3',
+				 '$softsk1',
+				 '$softsk2',
+				 '$softsk3',
+				 '$softskpro1',
+				 '$softskpro2',
+				 '$softskpro3',
+				 '$projti1',
+				 '$projti2',
+				 '$projti3',
+				 '$aspira',
+				 '$Entrepre',
+				 '$permis', 
+				 '$additi')";
+		
+		if($con->query($sql)){
+			
+			echo "New record is inserted successfully";
+			
+		}
+		else {
+			echo	"Error: ".$sql."<br>".$con->error;
+		}
+		$con->close();
+	
+		
+		}?>
     <p>&nbsp;</p>
-    <!-- end .content --></div>
+    <p><!-- end .content --></p>
+  </div>
   <div class="footer">
     <p>Deakin University, School of Information Technology. This web page has been developed as a student assignment for the unit SIT374: Project Design.</p>
     <!-- end .footer --></div>

@@ -167,25 +167,58 @@ function gotopage(select){
     <p>&nbsp;</p>
   <!-- end .sidebar1 --></div>
   <div class="content">
-    <h1 style="font-size:48px">Register</h1>
-    <p>There are two types of account in this web-base application.</p>
-    <p>Please choose the user type for registration.</p>
-    <form id="jump" name="jump" method="post" action="">
-      <p>
-        <label for="register"><br />
-        </label>
-        <select name="register" id="register" onchange="gotopage(this)">
-          <option selected="true" disabled="disabled">Choose one of the list Below</option>
-          <option value="RegisterStaff.php">Staff Account</option>
-          <option value="RegisterStudent.php">Student Account</option>
-        </select>
-      </p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-    </form>
+    <h1 style="font-size:48px">Staff Registration</h1>
     <p>&nbsp;</p>
+    
+    
+    <?PHP
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$sid = $_POST['sid'];
+	$email = $_POST['sid'];
+	$pass = $_POST['pass'];
+
+
+
+
+	
+	
+	//connect to database
+	require_once "constant.php";
+	$con = new MySQLi(DB_HOST,DB_NAME,DB_PASSWORD);
+	
+	if(mysqli_connect_error()){
+		die('Connect Error ('. mysqli_connect_errno() .')'. mysqli_connect_error());
+	}
+	
+	else {
+		$sql = "INSERT INTO staff (	 FNAME,
+									 LNAME, 
+									 STUDID, 
+									 EMAIL, 
+									 PASS, 
+		
+		 VALUES ('$fname',
+				 '$lname',
+				 '$sid', 
+				 'email',
+				 '$pass')";
+		
+		if($con->query($sql)){
+			
+			echo "New record is inserted successfully";
+			
+		}
+		else {
+			echo	"Error: ".$sql."<br>".$con->error;
+		}
+		$con->close();
+	
+		
+		}?>
     <p>&nbsp;</p>
-    <!-- end .content --></div>
+    <p><!-- end .content --></p>
+  </div>
   <div class="footer">
     <p>Deakin University, School of Information Technology. This web page has been developed as a student assignment for the unit SIT374: Project Design.</p>
     <!-- end .footer --></div>
